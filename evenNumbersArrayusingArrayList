@@ -1,0 +1,12 @@
+import java.util.ArrayList;
+import java.util.List;
+
+int[] arr = {1, 2, 3, 4, 5, 6};
+List<Integer> evenNumbers = new ArrayList<>();
+
+for (int num : arr) {
+    if (num % 2 == 0) {
+        evenNumbers.add(num);
+    }
+}
+System.out.println(evenNumbers); // Output: [2, 4, 6]
