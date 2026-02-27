@@ -1,0 +1,16 @@
+//Reverse a string using StringBuilder
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        System.out.println("Try programiz.pro");
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter String");
+        String str= sc.nextLine();
+        StringBuilder st1= new StringBuilder(str);
+   System.out.println(st1.reverse());
+        
+    }
+}
