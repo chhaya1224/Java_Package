@@ -1,0 +1,19 @@
+public class WordCount {
+    public static void main(String[] args) {
+        String sentence = "Java is fun. I love Java because Java is powerful.";
+        String wordToCount = "Java";
+
+        // Normalize sentence by removing punctuation and converting to lowercase
+        String[] words = sentence.replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+");
+        String target = wordToCount.toLowerCase();
+
+        int count = 0;
+        for (String word : words) {
+            if (word.equals(target)) {
+                count++;
+            }
+        }
+
+        System.out.println("The word \"" + wordToCount + "\" appears " + count + " times.");
+    }
+}
