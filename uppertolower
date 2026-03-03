@@ -1,0 +1,7 @@
+public class UpperToLower {
+    public static void main(String[] args) {
+        String str = "HELLO WORLD";
+        String lower = str.toLowerCase();
+        System.out.println(lower);
+    }
+}
