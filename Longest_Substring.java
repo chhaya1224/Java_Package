@@ -1,30 +1,31 @@
 import java.util.HashSet;
 
-class Longest_Substring {
-    public static void main(String[] args) {
-        String str = "abcabcbb";
-
+public class Main {
+    public static String longestSubstringWithoutRepeating(String s) {
         HashSet<Character> set = new HashSet<>();
-        int left = 0;
-        int maxLength = 0;
-        String longest = "";
+        int maxLen = 0, start = 0, end = 0;
+        int maxStart = 0; // To remember the starting index of the max substring
 
-        for (int right = 0; right < str.length(); right++) {
-            
-            while (set.contains(str.charAt(right))) {
-                set.remove(str.charAt(left));
-                left++;
+        while (end < s.length()) {
+            char c = s.charAt(end);
+            if (!set.contains(c)) {
+                set.add(c);
+                if (end - start + 1 > maxLen) {
+                    maxLen = end - start + 1;
+                    maxStart = start; // Update start index of max substring
+                }
+                end++;
+            } else {
+                set.remove(s.charAt(start));
+                start++;
             }
-
-            set.add(str.charAt(right));
-
-            if (right - left + 1 > maxLength) {
-                maxLength = right - left + 1;
-                longest = str.substring(left, right + 1);
-            }
-        }
-
-        System.out.println("Longest substring: " + longest);
-        System.out.println("Length: " + maxLength);
+        }       return s.substring(maxStart, maxStart + maxLen);
+    }
+    public static void main(String[] args) {
+        String input = "abcabcbb";
+        String longestSub = longestSubstringWithoutRepeating(input);
+        System.out.println("Input: " + input);
+        System.out.println("Longest substring without repeating characters: " + longestSub);
+        System.out.println("Length: " + longestSub.length());
     }
 }
